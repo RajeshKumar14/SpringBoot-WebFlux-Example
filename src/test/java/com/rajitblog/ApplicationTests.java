@@ -34,11 +34,11 @@ class ApplicationTests {
 	@Test
 	void testAddBook() {
 		Book book=new Book();
-		book.setId("1");
+		book.setId("101");
 		book.setName("Java");
 		Mockito.when(bookRepository.save(book)).thenReturn(Mono.just(book));
 		webTestClient.post().uri("/add").contentType(MediaType.APPLICATION_JSON)
-				.body(BodyInserters.fromObject(book))
+				.bodyValue(book)
 				.exchange()
 				.expectStatus().isCreated();
 		Mockito.verify(bookRepository,Mockito.times(1)).save(book);

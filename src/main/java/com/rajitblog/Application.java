@@ -11,12 +11,6 @@ public class Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-		BookWebClient bwc = new BookWebClient();
-		bwc.getAllBooksDemo();
-//		bwc.getBookByIdDemo();
-//		bwc.createBookDemo();
-//		bwc.updateBookDemo();
-//		bwc.deleteBookByIdDemo();
 	}
 
 }
