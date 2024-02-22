@@ -34,7 +34,7 @@ class ApplicationTests {
 	@Test
 	void testAddBook() {
 		Book book=new Book();
-		book.setId(1);
+		book.setId("1");
 		book.setName("Java");
 		Mockito.when(bookRepository.save(book)).thenReturn(Mono.just(book));
 		webTestClient.post().uri("/add").contentType(MediaType.APPLICATION_JSON)

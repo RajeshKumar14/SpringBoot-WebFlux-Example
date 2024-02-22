@@ -18,10 +18,10 @@ public class BookService {
         return bookRepository.findAll();
     }
     public Mono<Book> getBookById(String id) {
-        //return Mono.empty();
-        return Mono.just(new Book(id, "Java"));
+        return bookRepository.findById(id);
     }
     public Mono<Book> addBook(Book book) {
+
         return bookRepository.save(book);
     }
     public Mono<Book> updateBook(Book book) {

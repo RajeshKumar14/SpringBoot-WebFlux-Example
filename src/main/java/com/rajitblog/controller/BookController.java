@@ -12,15 +12,16 @@ import org.springframework.web.util.UriComponentsBuilder;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 @RestController
 public class BookController {
     @Autowired
     private BookService bookService;
 
     @GetMapping(value="/books", produces = { MediaType.APPLICATION_JSON_VALUE })
-    public Flux<ResponseEntity<Book>> getAllBooks() {
-        return bookService.getAllBooks()
-                .map(list -> new ResponseEntity<>(list, HttpStatus.OK));
+    public Flux<Book> getAllBooks() {
+        return bookService.getAllBooks();
     }
     @GetMapping("/books/{id}")
     public Mono<ResponseEntity<Book>> getBookById(@PathVariable("id") String id) {
